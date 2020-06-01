@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SF-UI-Text-Regular.otf">
+            <string>SFUIText-Regular</string>
+        </array>
+        <array key="SFProText-Regular.otf">
+            <string>SFProText-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextFieldWithPromt" customModule="Бонусы" customModuleProvider="target">
+            <connections>
+                <outlet property="promtLabel" destination="L6t-Nj-tZm" id="zrE-U4-5Aa"/>
+                <outlet property="promtLabelCenterConstraint" destination="gcJ-R2-03S" id="IaE-zp-hVR"/>
+                <outlet property="textField" destination="550-aU-JJp" id="z7P-qE-1WR"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="63"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="550-aU-JJp">
+                    <rect key="frame" x="0.0" y="22" width="375" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6t-Nj-tZm">
+                    <rect key="frame" x="0.0" y="22.5" width="37" height="18"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="SFProText-Regular" family="SF Pro Text" pointSize="15"/>
+                    <color key="textColor" red="0.7803921568627451" green="0.82745098039215681" blue="0.8666666666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="L6t-Nj-tZm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8x3-rn-5Op"/>
+                <constraint firstAttribute="bottom" secondItem="550-aU-JJp" secondAttribute="bottom" constant="6" id="Mez-hJ-J3I"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="L6t-Nj-tZm" secondAttribute="trailing" constant="15" id="N5n-B0-pvL"/>
+                <constraint firstItem="550-aU-JJp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Zhv-4C-uaG"/>
+                <constraint firstItem="L6t-Nj-tZm" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="gcJ-R2-03S"/>
+                <constraint firstAttribute="trailing" secondItem="550-aU-JJp" secondAttribute="trailing" id="hTs-pD-Xmy"/>
+                <constraint firstItem="550-aU-JJp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="22" id="n4a-CM-0SM"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="24.5" y="353.5"/>
+        </view>
+    </objects>
+</document>
