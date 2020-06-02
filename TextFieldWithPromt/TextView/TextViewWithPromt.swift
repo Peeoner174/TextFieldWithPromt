@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol TextViewWithPromtDelegate: class {
+@objc public protocol TextViewWithPromtDelegate: class {
     @objc optional func textViewWPDidBeginEditing(_ textView: TextViewWithPromt)
     @objc optional func textViewWPDidEndEditing(_ textView: TextViewWithPromt)
     @objc optional func textViewWPShouldReturn(_ textView: TextViewWithPromt) -> Bool
@@ -17,7 +17,7 @@ import UIKit
     @objc optional func textViewWPDidChange(textView: TextViewWithPromt)
 }
 
-class TextViewWithPromt: UIView {
+public class TextViewWithPromt: UIView {
     weak var delegate: TextViewWithPromtDelegate?
     
     private var view: UIView!
@@ -95,7 +95,7 @@ class TextViewWithPromt: UIView {
         return textView.text
     }
     
-    override var inputView: UIView? {
+    public override var inputView: UIView? {
         get {
             return textView.inputView
         }
@@ -250,16 +250,16 @@ class TextViewWithPromt: UIView {
 // MARK: - UITextViewDelegate
 extension TextViewWithPromt: UITextViewDelegate {
     
-    func textViewDidChange(_ textView: UITextView) {
+    public func textViewDidChange(_ textView: UITextView) {
         delegate?.textViewWPDidChange?(textView: self)
     }
 
-    func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
+    public func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         delegate?.textViewWPShouldBeginEditing?(self)
         return true
     }
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
+    public func textViewDidBeginEditing(_ textView: UITextView) {
         setFocusColorStyle()
         guard textView.text?.isEmpty != false else {
             delegate?.textViewWPDidBeginEditing?(self)
@@ -278,7 +278,7 @@ extension TextViewWithPromt: UITextViewDelegate {
         }
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
+    public func textViewDidEndEditing(_ textView: UITextView) {
         delegate?.textViewWPDidEndEditing?(self)
         guard textView.text?.isEmpty != false else { return }
         promtLabelHeightConstraint.isActive = true
@@ -289,7 +289,7 @@ extension TextViewWithPromt: UITextViewDelegate {
         }
     }
     
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    public func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         guard let result = delegate?.textViewWP?(self, shouldChangeCharactersIn: range, replacementString: text) else {
             return true
         }

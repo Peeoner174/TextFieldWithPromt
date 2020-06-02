@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class UnderlinedTextFieldWithPromt: TextFieldWithPromt {
+public class UnderlinedTextFieldWithPromt: TextFieldWithPromt {
     
     private(set) var customSeparator = UIView(frame: .zero)
     
@@ -71,12 +71,12 @@ class UnderlinedTextFieldWithPromt: TextFieldWithPromt {
 
 extension UnderlinedTextFieldWithPromt {
     
-    override func textFieldDidBeginEditing(_ textField: UITextField) {
+    public override func textFieldDidBeginEditing(_ textField: UITextField) {
         super.textFieldDidBeginEditing(textField)
         adjustSeparatorOnInteraction()
     }
     
-    override func textFieldDidEndEditing(_ textField: UITextField) {
+    public override func textFieldDidEndEditing(_ textField: UITextField) {
         super.textFieldDidEndEditing(textField)
         adjustSeparatorOnEndEditing()
     }

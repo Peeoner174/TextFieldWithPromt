@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol TextFieldWithPromtDelegate: class {
+@objc public protocol TextFieldWithPromtDelegate: class {
     @objc optional func textFieldWPDidBeginEditing(_ textField: TextFieldWithPromt)
     @objc optional func textFieldWPDidEndEditing(_ textField: TextFieldWithPromt)
     @objc optional func textFieldWPShouldReturn(_ textField: TextFieldWithPromt) -> Bool
@@ -16,7 +16,7 @@ import UIKit
     @objc optional func textFieldWPShouldBeginEditing(_ textField: TextFieldWithPromt)
 }
 
-class TextFieldWithPromt: UIView {
+public class TextFieldWithPromt: UIView {
     weak var delegate: TextFieldWithPromtDelegate?
     weak var maskTemplate_delegate: MaskTemplate_TextFieldDelegate?
     
@@ -191,7 +191,7 @@ class TextFieldWithPromt: UIView {
         }
     }
     
-    override var inputView: UIView? {
+    public override var inputView: UIView? {
         get {
             return textField.inputView
         }
@@ -326,12 +326,12 @@ class TextFieldWithPromt: UIView {
 
 extension TextFieldWithPromt: UITextFieldDelegate {
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         delegate?.textFieldWPShouldBeginEditing?(self)
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         
         guard textField.text?.isEmpty ?? true else {
             delegate?.textFieldWPDidBeginEditing?(self)
@@ -353,7 +353,7 @@ extension TextFieldWithPromt: UITextFieldDelegate {
         }
     }
     
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
         maskTemplate_delegate?.textFieldDidEndEditing(textField)
         delegate?.textFieldWPDidEndEditing?(self)
         guard textField.text?.isEmpty ?? true else {
@@ -367,14 +367,14 @@ extension TextFieldWithPromt: UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         guard let result = delegate?.textFieldWPShouldReturn?(self) else {
             return false
         }
         return result
     }
     
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if maskTemplate.template == .phone && self.text?.onlyDigits.count ?? 0 == 1 && string == "" {
             guard let cursorPosition = textField.position(from: textField.beginningOfDocument, offset: 4) else {
                 return false
